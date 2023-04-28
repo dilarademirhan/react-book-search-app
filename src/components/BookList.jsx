@@ -9,7 +9,8 @@ const BookList = () => {
 
   const fetchBooks = (event) => {
     if(event.key === 'Enter'){
-        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=' + import.meta.env.VITE_API_KEY)
+        const apiKey = import.meta.env.VITE_API_KEY
+        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=' + apiKey)
         .then(response => setBooks(response.data.items))
         .catch(error => console.log(error))
     }
